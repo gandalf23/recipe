@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Ingredients</h1>
+<p><%= link_to new_ingredient_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add New Ingredient
+  <% end %>
+</p>
+
+  <div class="row">
+    <% @ingredients.each do |ingredient| %>
+      <div class="col-md-6">
+        <div class="well">
+          <h2><%= link_to ingredient.ingedientname, ingredient %></h2>
+          
+
+          <h4><%= link_to edit_ingredient_path(ingredient) do %>
+            <span class="glyphicon glyphicon-pencil"></span>
+          <% end %>   | 
+          <%= link_to ingredient, method: :delete, data: { confirm: 'Are you sure?' } do %>
+             <span class="glyphicon glyphicon-trash"></span>
+          <% end %>
+          </h4>   
+          
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+<br>

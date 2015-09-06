@@ -1,0 +1,44 @@
+<%= form_for(@recipe) do |f| %>
+  <% if @recipe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recipe.errors.count, "error") %> prohibited this recipe from being saved:</h2>
+
+      <ul>
+      <% @recipe.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.select :rating, ["1","2","3","4","5"], {:include_blank => 'Rating'}, class: "form-control" %>
+  </div>
+   
+
+  <div class="field">
+    <%= f.label :instructions %><br>
+  
+    <!--changed by mike on friday after 8pm-->
+    <%= f.text_area :instructions, class: "form-control", placeholder: "Type instructions for the recipe here, please", rows: 20 %>
+   </div>
+   
+  
+  <!--this sticks the user id of whoever is creating the recipe into the recipe -->
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id, value: current_user.id %>
+    
+  </div>
+   
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+

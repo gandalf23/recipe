@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @recipe.title %>
+</p>
+
+<p>
+
+  
+        <!--this is the code that does the ratings, and sets the icon to a fork, and makes the fork yellow in color-->
+        <% "#{@recipe.rating}".to_i.times do %>
+         <!--<span class="glyphicon glyphicon-star"></span>-->
+         <span><i class="ionicons ion-fork yellow"></i></span>
+        <% end %>
+        <!--end of rating related code-->
+  
+  
+</p>
+
+<p>
+  <strong>Instructions:</strong>
+  <pre><%= @recipe.instructions %></pre>
+</p>
+
+<%= link_to 'Edit Recipe', edit_recipe_path(@recipe) %> |
+<%= link_to 'All Recipes', recipes_path %>

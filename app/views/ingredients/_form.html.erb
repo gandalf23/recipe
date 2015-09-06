@@ -1,0 +1,28 @@
+
+
+<div class="row">
+  <div class="col-sm-6 col-sm-offset-3">
+    <%= form_for(@ingredient) do |f| %>
+      <% if @ingredient.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this song from being saved:</h2>
+
+          <ul>
+          <% @ingredient.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="form-group">
+        <%= f.label :ingedientname, class: "sr-only" %>
+        <%= f.text_field :ingedientname, class: "form-control", placeholder: "Ingredient Name" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

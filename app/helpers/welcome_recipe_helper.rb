@@ -1,0 +1,2 @@
+module WelcomeRecipeHelper
+end

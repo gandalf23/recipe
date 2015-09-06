@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recipes</title>
+  
+  <!--this puts the picture of a knife and fork in the tab on the browser-->
+ <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.ico" />
+
+   
+  
+  <!-- Latest compiled and minified CSS -->
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" %>
+
+<!-- Optional theme -->
+<%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" %>
+<%= stylesheet_link_tag "https://netdna.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" %>
+
+<!--ionicos, for the fork for the ratings-->
+<%= stylesheet_link_tag "https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" %>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  
+ <!-- Latest compiled and minified JavaScript -->
+<%= javascript_include_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" %>
+   
+</head>
+<body>
+
+
+<div class="site-wrapper">
+      <div class="site-wrapper-inner">
+        <div class="cover-container">
+          <div class="masthead clearfix">
+            <div class="inner">
+              <h3 class="masthead-brand"><i class="fa fa-cutlery"></i> Our Recipes</h3>
+              <nav>
+                <ul class="nav masthead-nav">
+                  <% if user_signed_in? %>
+                    <li><%= link_to "All Recipes", root_path %></li>
+  		              <li><%= link_to "Ingredients", ingredients_path %></li>
+  		
+                
+        	        
+        	          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+        	          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+      	       
+                  <% else %>
+                    <li> <%= link_to "Sign Up", new_user_registration_path %></li>
+                  <% end %>         	       
+      	       
+    	          </ul>
+    	        
+              </nav>
+
+            </div>
+          </div>  
+          
+ 
+              <%= yield %>
+
+          
+       
+          <div class="mastfoot">
+            <div class="inner">
+              <p>Recipes - 2015</p>
+            </div>
+          </div>
+         </div>      
+      </div>
+</div>
+
+
+</body>
+</html>
+
