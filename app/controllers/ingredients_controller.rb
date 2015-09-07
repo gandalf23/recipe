@@ -10,11 +10,13 @@ class IngredientsController < ApplicationController
   # GET /ingredients/1
   # GET /ingredients/1.json
   def show
+    @recipe = Recipe.new
   end
 
   # GET /ingredients/new
   def new
     @ingredient = Ingredient.new
+    @recipe = Recipe.new
   end
 
   # GET /ingredients/1/edit

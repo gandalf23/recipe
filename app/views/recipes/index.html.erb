@@ -28,7 +28,7 @@
             <p><strong><%=recipe.updated_at.strftime('%d %B %Y %H:%M:%S') %></strong></p>
           </div>
       
-      Created by chef: <% recipe.user %>
+      Created by chef: <%= recipe.user.email %>
       
       <h4><%= link_to edit_recipe_path(recipe) do %>
             <span class="glyphicon glyphicon-pencil"></span>

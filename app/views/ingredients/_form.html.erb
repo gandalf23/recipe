@@ -5,7 +5,7 @@
     <%= form_for(@ingredient) do |f| %>
       <% if @ingredient.errors.any? %>
         <div id="error_explanation">
-          <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this song from being saved:</h2>
+          <h2><%= pluralize(@ingredient.errors.count, "error") %> prohibited this ingredient from being saved:</h2>
 
           <ul>
           <% @ingredient.errors.full_messages.each do |message| %>
@@ -16,9 +16,18 @@
       <% end %>
 
       <div class="form-group">
-        <%= f.label :ingedientname, class: "sr-only" %>
-        <%= f.text_field :ingedientname, class: "form-control", placeholder: "Ingredient Name" %>
+        <%= f.label :ingredientname, class: "sr-only" %>
+        <%= f.text_field :ingredientname, class: "form-control", placeholder: "Ingredient Name" %>
       </div>
+
+      <div class="form-group">
+  
+              <!--I don't get this.  I am literally telling it the value is the number 2, and yet it does not get saved.  wtf?  -->
+              <%= f.label :recipe_id %>
+              <%= f.label :recipe_id,  value = 2 %>
+
+         <br>
+       </div>
 
       <div class="actions">
         <%= f.submit class: "btn btn-primary" %>
